@@ -277,18 +277,36 @@ def usage():
     print('Usage:')
     print('\tpython3 %s https://example.com/javascripts/main.js'%name)
     print('\tcat my_js_files.txt | python3 %s'%name)
+    print('\tpython3 %s -f filename.js'%name)
     print('\n\tby @m4ll0k - github.com/m4ll0k')
     sys.exit(0)
 
-if len(sys.argv) == 1:
+
+def openFile(filename:str):
+    try:
+        with open(filename, 'r') as file:
+            js = file.read()
+
+        words = getWords(js)
+        for word in words:
+            print(word)
+
+    except Exception as err:
+        sys.exit(print(err))
+
+if len(sys.argv) == 2 and sys.argv[1] == "-f":
     usage()
 
-if len(sys.argv) == 2:
-    main(
-        sys.argv[1]
-    )
+elif len(sys.argv) == 2:
+    main(sys.argv[1])
+
+elif len(sys.argv) == 3 and sys.argv[1] == "-f":
+    openFile(sys.argv[2])
+
 else:
-    for jsFile in sys.stdin.readlines():
+    lol = sys.stdin.readlines()
+    for jsFile in lol:
+        print(jsFile)
         jsFile = jsFile.strip()
         if jsFile == '\n':
             usage()
