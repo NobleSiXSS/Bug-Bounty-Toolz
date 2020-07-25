@@ -1,3 +1,1 @@
-### BBT - My Bug Bounty Tools
-
-My bug bounty tools
+Changed getjswords.py to extract also words from local files
