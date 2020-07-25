@@ -1,1 +1,1 @@
-Changed getjswords.py to extract also words from local files
+Changed getjswords.py to also extract words from local files
