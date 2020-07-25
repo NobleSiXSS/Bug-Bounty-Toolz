@@ -306,7 +306,6 @@ elif len(sys.argv) == 3 and sys.argv[1] == "-f":
 else:
     lol = sys.stdin.readlines()
     for jsFile in lol:
-        print(jsFile)
         jsFile = jsFile.strip()
         if jsFile == '\n':
             usage()
